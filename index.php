@@ -114,6 +114,8 @@
 				}
 				echo '</tr>';
 			}
+			//adiconar: não deixar selecionar mais de 1 assento.
+			//disparar um alerta para informar que é 1 assento por usuario
 			?>
 		</table>
 		<br>
