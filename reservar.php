@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Assentos Reservados</title>
+        <title>Reserva de Assento</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <style>
-            ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-            }
-
-            li {
-                margin-bottom: 10px;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
+            h1, h2, p {
+                text-align: center;
             }
         </style>
     </head>
     <body>
-        <h1>Assentos Reservados:</h1>
-        <?php
-        // Verifica se pelo menos um assento foi selecionado
-        if (isset($_POST['assento']) && !empty($_POST['assento'])) {
-            // Imprime a lista de assentos selecionados
-            foreach ($_POST['assento'] as $assento) {
+        <div class="container">
+            <h1 class="page-header">Assentos Reservados</h1>
+            <?php
+            // Verifica se pelo menos um assento foi selecionado
+            if (isset($_POST['assento']) && !empty($_POST['assento'])) {
+                // Imprime a lista de assentos selecionados
+                foreach ($_POST['assento'] as $assento) {
+                    ?>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Informações do Assento:</div>
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item"><strong>Assento:</strong> <?php echo $assento; ?></li>
+                                <li class="list-group-item"><strong>Nome:</strong> <?php echo $_POST['nome']; ?></li>
+                                <li class="list-group-item"><strong>E-mail:</strong> <?php echo $_POST['email']; ?></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <?php
+                }
                 ?>
-                <h2>Informações do Assento:</h2>
-                <ul>
-                    <li><strong>Assento:</strong> <?php echo $assento; ?></li>
-                    <li><strong>Nome:</strong> <?php echo $_POST['nome']; ?></li>
-                    <li><strong>E-mail:</strong> <?php echo $_POST['email']; ?></li>
-                </ul>
+                <div class="alert alert-success" role="alert">Obrigado pela reserva! Seu assento foi reservado com sucesso.</div>
                 <?php
+            } else {
+                echo '<div class="alert alert-warning" role="alert">Nenhum assento selecionado.</div>';
             }
             ?>
-            <p>Obrigado pela reserva! Seus assentos foram reservados com sucesso.</p>
-            <?php
-        } else {
-            echo '<p>Nenhum assento selecionado.</p>';
-        }
-        ?>
-        <p><a href="index.php">Voltar</a></p>
+            <p class="text-center"><a href="index.php" class="btn btn-primary">Voltar</a></p>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>

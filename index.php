@@ -41,14 +41,14 @@
 		table {
 			margin: 0 auto;
 			border-collapse: collapse;
-			width: 100%;
-			margin-bottom: 20px;
+			width: 10%;
+			margin-bottom: 1px;
 		}
 
 		td {
-			padding: 10px;
+			padding: 5px;
 			text-align: center;
-			border: 1px solid #ccc;
+			border: 20px solid #ccc;
 			background-color: #f2f2f2;
 		}
 
@@ -58,12 +58,12 @@
 
 		input[type="checkbox"] + label {
 			display: block;
-			padding: 10px;
+			padding: 5px;
 			cursor: pointer;
 			border: 1px solid #ccc;
 			background-color: #fff;
 			color: #666;
-			font-size: 16px;
+			font-size: 14px;
 		}
 
 		input[type="checkbox"]:checked + label {
