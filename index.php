@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Selecionador de Assentos</title>
 	<style>
@@ -20,7 +21,7 @@
 			padding: 20px;
 			background-color: #fff;
 			border-radius: 5px;
-			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 		}
 
 		form label {
@@ -29,7 +30,8 @@
 			color: #666;
 		}
 
-		form input[type="text"], form input[type="email"] {
+		form input[type="text"],
+		form input[type="email"] {
 			width: 100%;
 			padding: 10px;
 			border: 1px solid #ccc;
@@ -56,7 +58,7 @@
 			display: none;
 		}
 
-		input[type="checkbox"] + label {
+		input[type="checkbox"]+label {
 			display: block;
 			padding: 5px;
 			cursor: pointer;
@@ -66,7 +68,7 @@
 			font-size: 14px;
 		}
 
-		input[type="checkbox"]:checked + label {
+		input[type="checkbox"]:checked+label {
 			background-color: #4CAF50;
 			color: #fff;
 		}
@@ -88,6 +90,7 @@
 		}
 	</style>
 </head>
+
 <body>
 	<h1>Selecione seu assento</h1>
 	<form action="reservar.php" method="post">
@@ -114,12 +117,28 @@
 				}
 				echo '</tr>';
 			}
-			//adiconar: não deixar selecionar mais de 1 assento.
-			//disparar um alerta para informar que é 1 assento por usuario
 			?>
+			<script>
+				var assentos = document.querySelectorAll('input[type="checkbox"]');
+
+				assentos.forEach(function(assento) {
+					assento.addEventListener('change', function() {
+						//verificar se o assento está selecionado
+						if (this.checked) {
+							//desmarcar todos os outros assentos selecionados
+							assentos.forEach(function(outroAssento) {
+								if (outroAssento != assento && outroAssento.checked) {
+									outroAssento.checked = false;
+								}
+							});
+						}
+					});
+				});
+			</script>
 		</table>
 		<br>
 		<input type="submit" value="Reservar">
 	</form>
 </body>
+
 </html>
