@@ -102,17 +102,34 @@
 		<br><br>
 		<table>
 			<?php
+			// lê o arquivo de texto e armazena os assentos já selecionados em um array
+			$assentos_selecionados = array();
+			$filename = 'assentos.txt';
+			if (file_exists($filename)) {
+				$lines = file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+				foreach ($lines as $line) {
+					$assento_info = explode(',', $line);
+					array_push($assentos_selecionados, $assento_info[0]);
+				}
+			}
+
 			// Número de assentos por fileira
 			$num_assentos = 4;
 			// Número de fileiras
 			$num_fileiras = 6;
+
 			// Loop pelas fileiras e assentos
 			for ($i = 1; $i <= $num_fileiras; $i++) {
 				echo '<tr>';
 				for ($j = 1; $j <= $num_assentos; $j++) {
 					echo '<td>';
-					echo '<input type="checkbox" name="assento[]" value="' . $i . '-' . $j . '" id="assento-' . $i . '-' . $j . '">';
-					echo '<label for="assento-' . $i . '-' . $j . '">Fila ' . $i . ', Assento ' . $j . '</label>';
+					$assento_id = $i . '-' . $j;
+					if (in_array($assento_id, $assentos_selecionados)) {
+						echo '<label for="assento-' . $i . '-' . $j . '">Fila ' . $i . ', Assento ' . $j . '</label>';
+					} else {
+						echo '<input type="checkbox" name="assento[]" value="' . $assento_id . '" id="assento-' . $i . '-' . $j . '">';
+						echo '<label for="assento-' . $i . '-' . $j . '">Fila ' . $i . ', Assento ' . $j . '</label>';
+					}
 					echo '</td>';
 				}
 				echo '</tr>';

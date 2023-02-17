@@ -24,7 +24,7 @@ $apiKey = '5ea0eb80f3a15a09ff9a04a3095f5265';
 
 $api = new OpenWeatherMapAPI($apiKey);
 
-$city = 'Taboão da serra';
+$city = 'São Gonçalo';
 
 $temperature = $api->getWeatherByCity($city);
 
