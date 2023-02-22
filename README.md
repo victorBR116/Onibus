@@ -1,6 +1,4 @@
-# Onibus
-
-Selecionador de Assento de Ônibus
+# Selecionador de Assento de Ônibus
 Este é um projeto desenvolvido em PHP, HTML e CSS para permitir que os usuários selecionem seus assentos de ônibus.
 
 Como funciona
