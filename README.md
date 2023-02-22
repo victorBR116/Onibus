@@ -11,7 +11,7 @@ Para executar este projeto, você precisará ter instalado um servidor web com s
 
 <h3>Instalação:
 
-° Clone este repositório em seu servidor web
+Clone este repositório em seu servidor web
 Configure as informações de conexão do banco de dados no arquivo "config.php"
 Crie o banco de dados e a tabela necessários, utilizando o arquivo "database.sql" fornecido
 Acesse a página "index.php" em seu navegador e comece a usar o selecionador de assentos de ônibus.
